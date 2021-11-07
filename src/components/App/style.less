@@ -1,0 +1,19 @@
+.app {
+  background-image: url("/public/assets/pattern-background-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 50vh;
+  background-color: #e0e8ff;
+  height: 100vh;
+  position: relative;
+
+  .background-image {
+    vertical-align: top;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+  }
+
+  *:not(.background-image) {
+    z-index: 2;
+  }
+}
