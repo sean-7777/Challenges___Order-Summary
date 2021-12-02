@@ -17,7 +17,11 @@ export default class Details extends Component {
     render() {
       return (
         <div className="plan">
-          <img src={this.props.icon.src} alt={this.props.icon.alt || "Icon"} />
+          <img
+            className="icon"
+            src={this.props.icon.src}
+            alt={this.props.icon.alt || "Icon"}
+          />
           <h3 className="title">
             {this.props.name}
             <br />
