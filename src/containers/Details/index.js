@@ -1,39 +1,26 @@
 import React, { Component } from "react";
 import "./style.less";
 
-export default class Details extends Component {
-  static Description = class extends Component {
-    render() {
-      return (
-        <>
-          <h2 className="title">{this.props.title}</h2>
-          <p className="description">{this.props.children}</p>
-        </>
-      );
-    }
-  };
+const Details = ({ children }) => <div className="details">{children}</div>;
 
-  static Plan = class extends Component {
-    render() {
-      return (
-        <div className="plan">
-          <img
-            className="icon"
-            src={this.props.icon.src}
-            alt={this.props.icon.alt || "Icon"}
-          />
-          <h3 className="title">
-            {this.props.name}
-            <br />
-            <span className="price">{this.props.price}</span>
-          </h3>
-          <button className="change">Change</button>
-        </div>
-      );
-    }
-  };
+Details.Description = ({ title, children }) => (
+  <>
+    <h2 className="title">{title}</h2>
+    <p className="description">{children}</p>
+  </>
+);
 
-  render() {
-    return <div className="details">{this.props.children}</div>;
-  }
-}
+Details.Plan = ({ name, price, icon: { src: imgSrc, alt: imgAlt } }) => (
+  <div className="plan">
+    <img className="icon" src={imgSrc} alt={imgAlt || "Icon"} />
+    <h3 className="title">
+      {name}
+      <br />
+      <span className="price">{price}</span>
+    </h3>
+    <div id="space"></div>
+    <button className="change">Change</button>
+  </div>
+);
+
+export default Details;
